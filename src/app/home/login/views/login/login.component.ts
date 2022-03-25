@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private readonly router: Router) { }
+  public login: {
+    email: string,
+    password: string
+  }
+
+  constructor(private readonly loginService: LoginService,
+    private readonly router: Router) {
+    this.login = {
+      email: '',
+      password: ''
+    }
+  }
 
   ngOnInit(): void {
   }
 
-  send() {
-
-  }
-
-  transactions() {
-    this.router.navigate(['home/transactions'])
+  async send() {
+    try {
+      const result = await this.loginService.login(this.login)
+      this.router.navigate(['/'])
+    } catch (error) {
+      console.error(error)
+    }
   }
 
 }
