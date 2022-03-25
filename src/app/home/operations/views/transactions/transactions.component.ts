@@ -31,7 +31,7 @@ export class TransactionsComponent implements OnInit {
 
   public search(queryes?: any) {
     this.transactionsService.search(queryes).subscribe(response => {
-      this.transactions = response;
+      this.transactions = response.results;
       console.log('#transactions: ', this.transactions);
     });
   }

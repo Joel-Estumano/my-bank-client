@@ -7,6 +7,8 @@ export class Transaction {
     moveValue: number | null = null
     description: number | null = null
 
+    createdAt: Date | null = null
+
     public createFormTransaction() {
         return {
             transactionType: [this.transactionType, Validators.required],
