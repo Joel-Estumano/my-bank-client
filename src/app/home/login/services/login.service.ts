@@ -23,4 +23,8 @@ export class LoginService {
         return token
     }
 
+    public setToken(token: string) {
+        window.localStorage.setItem('token', token)
+    }
+
 }

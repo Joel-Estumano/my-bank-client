@@ -7,7 +7,11 @@ const routes: Routes = [
     {
         path: '', component: HomeComponent,
         children: [
-            { path: '', redirectTo: 'transactions' },
+            { path: '', redirectTo: 'bank-accounts' },
+            {
+                path: 'bank-accounts', loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule),
+                canActivate: [AuthGuard]
+            },
             {
                 path: 'transactions', loadChildren: () => import('./transactions/transactions.module').then(m => m.TransactionsModule),
                 canActivate: [AuthGuard]

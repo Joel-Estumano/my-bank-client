@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   async send() {
     this.loginService.login(this.login).subscribe(response => {
       if (response && response.access_token) {
-        window.localStorage.setItem('token', response.access_token)
+        this.loginService.setToken(response.access_token)
         this.router.navigate(['/'])
       } else {
         this.alertService.error('Error', 'Unauthorized', true)
