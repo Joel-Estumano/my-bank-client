@@ -12,7 +12,8 @@ export class TransactionsComponent implements OnInit {
 
   public transactions: Transaction[]
   public filters = {
-    nome: '',
+    _id: '623b630daa23314afa24d88d',
+    active: true
   }
 
   constructor(private readonly transactionsService: TransactionsService,
@@ -32,7 +33,7 @@ export class TransactionsComponent implements OnInit {
   public search(queryes?: any) {
     this.transactionsService.search(queryes).subscribe(response => {
       this.transactions = response;
-      console.log(this.transactions);
+      console.log('#transactions: ', this.transactions);
     });
   }
 
