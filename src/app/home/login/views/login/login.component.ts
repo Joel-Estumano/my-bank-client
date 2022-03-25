@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/core/services/alert.service';
+import { LoginInterface } from '../../interfaces/login.interface';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -9,29 +11,28 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  public login: {
-    email: string,
-    password: string
-  }
+  public login: LoginInterface
 
   constructor(private readonly loginService: LoginService,
-    private readonly router: Router) {
-    this.login = {
-      email: '',
-      password: ''
-    }
+    private readonly router: Router,
+    private readonly alertService: AlertService) {
+
+    this.login = new LoginInterface()
+
   }
 
   ngOnInit(): void {
   }
 
   async send() {
-    try {
-      const result = await this.loginService.login(this.login)
-      this.router.navigate(['/'])
-    } catch (error) {
-      console.error(error)
-    }
+    this.loginService.login(this.login).subscribe(response => {
+      if (response && response.access_token) {
+        window.localStorage.setItem('token', response.access_token)
+        this.router.navigate(['/'])
+      } else {
+        this.alertService.error('Error', 'Unauthorized', true)
+      }
+    })
   }
 
 }
