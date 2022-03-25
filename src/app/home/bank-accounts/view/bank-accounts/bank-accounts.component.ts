@@ -50,7 +50,7 @@ export class BankAccountsComponent implements OnInit {
         account: account
       }
     }
-    this.router.navigate(['/home/transactions'], navigationExtras)
+    this.router.navigate(['/home/operations/'], navigationExtras)
   }
 
   goToOperations(account: any) {
@@ -59,7 +59,7 @@ export class BankAccountsComponent implements OnInit {
         account: account
       }
     }
-    this.router.navigate(['/home/transactions/operations'], navigationExtras)
+    this.router.navigate(['/home/operations/operations'], navigationExtras)
   }
 
 }

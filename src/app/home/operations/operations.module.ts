@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TransactionsComponent } from './views/transactions/transactions.component';
-import { TransactionsRoutingModule } from './transactions-routing.module';
-import { TransactionsService } from './services/transactions.service';
 import { OperationsComponent } from './views/operations/operations.component';
+import { TransactionsComponent } from './views/transactions/transactions.component';
+import { OperationsRoutingModule } from './operations-routing.module';
+import { TransactionsService } from './services/transactions.service';
 
 @NgModule({
   declarations: [
@@ -12,10 +12,10 @@ import { OperationsComponent } from './views/operations/operations.component';
   ],
   imports: [
     CommonModule,
-    TransactionsRoutingModule
+    OperationsRoutingModule
   ],
   providers: [
     TransactionsService
   ]
 })
-export class TransactionsModule { }
+export class OperationsModule { }

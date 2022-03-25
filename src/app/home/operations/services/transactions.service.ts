@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
-import { Transaction } from '../interfaces/transaction.interface';
 
 @Injectable()
 export class TransactionsService {
