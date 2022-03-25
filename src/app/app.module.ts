@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
@@ -28,7 +28,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     AppRoutingModule,
     HttpClientModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
-    NgbModule
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
