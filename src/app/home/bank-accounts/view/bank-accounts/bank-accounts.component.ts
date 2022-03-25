@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { QueryPageService } from 'src/app/core/services/query-page.service';
 import { BankAccount } from '../../interfaces/bank-account.interface';
 import { BamkAccountsService } from '../../services/bank-account.service';
@@ -17,7 +18,9 @@ export class BankAccountsComponent implements OnInit {
   }
 
   constructor(private readonly bamkAccountsService: BamkAccountsService,
-    private readonly queryPageService: QueryPageService) {
+    private readonly queryPageService: QueryPageService,
+    private readonly router: Router) {
+
     this.bankAccounts = []
     this.idBankAccount = "623caf42e0c2c4c1ebdb77e8"
     this.filters = {
@@ -41,8 +44,13 @@ export class BankAccountsComponent implements OnInit {
     });
   }
 
-  goToExtract(){
-
+  goToTransactions(account: any) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        account: account
+      }
+    }
+    this.router.navigate(['/home/transactions'], navigationExtras)
   }
 
 }
