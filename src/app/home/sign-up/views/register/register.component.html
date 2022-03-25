@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card my-4">
+    <div class="card bg-light my-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card-body">
@@ -7,31 +7,31 @@
                     <form role="form" [formGroup]="formPersonalData">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>First Name*</label>
+                                <label class="fw-light">First Name*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="name" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPersonalData,'name')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Last Name*</label>
+                                <label class="fw-light">Last Name*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="lastName" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPersonalData,'lastName')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>CPF*</label>
+                                <label class="fw-light">CPF*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="cpf" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPersonalData,'cpf')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Email*</label>
+                                <label class="fw-light">Email*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="email" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPersonalData,'email')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Telephone*</label>
+                                <label class="fw-light">Telephone*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="telephone" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPersonalData,'telephone')" />
                             </div>
                         </div>
@@ -44,43 +44,43 @@
                     <form role="form" [formGroup]="formAddress">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Place*</label>
+                                <label class="fw-light">Place*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="place" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'place')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Address Number*</label>
+                                <label class="fw-light">Address Number*</label>
                                 <input type="number" class="form-control form-control-sm" formControlName="addressNumber" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'addressNumber')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Complement</label>
+                                <label class="fw-light">Complement</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="complement" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>District*</label>
+                                <label class="fw-light">District*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="district" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'district')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>City*</label>
+                                <label class="fw-light">City*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="city" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'city')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>State*</label>
+                                <label class="fw-light">State*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="state" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'state')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Zipcode*</label>
+                                <label class="fw-light">Zipcode*</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="zipcode" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formAddress,'zipcode')" />
                             </div>
                         </div>
@@ -93,14 +93,14 @@
                     <form role="form" [formGroup]="formPassword">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Password*</label>
-                                <input type="text" class="form-control form-control-sm" formControlName="password" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPassword,'password')" />
+                                <label class="fw-light">Password*</label>
+                                <input type="password" class="form-control form-control-sm" formControlName="password" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPassword,'password')" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Repeat Password*</label>
-                                <input type="text" class="form-control form-control-sm" formControlName="repeatPassword" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPassword,'repeatPassword')" />
+                                <label class="fw-light">Repeat Password*</label>
+                                <input type="password" class="form-control form-control-sm" formControlName="repeatPassword" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(formPassword,'repeatPassword')" />
                             </div>
                         </div>
                     </form>
