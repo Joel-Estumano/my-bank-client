@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transaction } from '../../interfaces/transaction.interface';
+import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
   selector: 'app-transactions',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
 
-  constructor() { }
+  public transactions: Transaction[]
+
+  constructor(private readonly transactionsService: TransactionsService) {
+    this.transactions = []
+  }
 
   ngOnInit(): void {
+  }
+
+  public search(queryes?: any) {
+    this.transactionsService.search(queryes).subscribe(response => {
+      this.transactions = response;
+      console.log(this.transactions);
+    });
   }
 
 }
