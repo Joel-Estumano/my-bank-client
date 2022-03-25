@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TransactionsComponent } from './views/transactions/transactions.component';
 import { TransactionsRoutingModule } from './transactions-routing.module';
 import { TransactionsService } from './services/transactions.service';
+import { OperationsComponent } from './views/operations/operations.component';
 
 @NgModule({
   declarations: [
-    TransactionsComponent
+    TransactionsComponent,
+    OperationsComponent
   ],
   imports: [
     CommonModule,

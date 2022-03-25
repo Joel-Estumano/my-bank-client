@@ -53,4 +53,13 @@ export class BankAccountsComponent implements OnInit {
     this.router.navigate(['/home/transactions'], navigationExtras)
   }
 
+  goToOperations(account: any) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        account: account
+      }
+    }
+    this.router.navigate(['/home/transactions/operations'], navigationExtras)
+  }
+
 }
