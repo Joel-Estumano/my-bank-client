@@ -5,6 +5,7 @@ import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ng
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpInterceptorProviders } from './core/http-interceptors';
 
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
@@ -30,7 +31,9 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    HttpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
