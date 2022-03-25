@@ -43,14 +43,14 @@ export class RegisterComponent implements OnInit {
 
       this.signUpService.insert(this.user).subscribe(response => {
         if (response) {
-          this.alertService.success('Success!', true)
+          this.alertService.success('Success', 'Sent with success', true)
           this.goToLogin()
         } else {
-          this.alertService.error('Send error', true)
+          this.alertService.error('Failure', 'Failed to send', true)
         }
       });
     } else {
-      this.alertService.error('Form error', true)
+      this.alertService.error('Error', 'Form error', true)
     }
   }
 

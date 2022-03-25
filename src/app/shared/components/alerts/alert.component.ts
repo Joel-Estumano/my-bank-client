@@ -23,13 +23,13 @@ export class AlertComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscription = this.alertService.getAlert().subscribe(message => {
-      switch (message && message.type) {
+    this.subscription = this.alertService.getAlert().subscribe(alert => {
+      switch (alert && alert.type) {
         case 'success':
-          this.showSuccess(message)
+          this.showSuccess(alert)
           break;
         case 'error':
-          this.showError(message)
+          this.showError(alert)
           break;
       }
     })
@@ -41,11 +41,15 @@ export class AlertComponent implements OnInit {
     }
   }
 
-  showSuccess(message: string) {
+  showSuccess(alert: any) {
     this.bsModalRef = this.modalService.show(SuccessComponent, { class: 'modal-dialog modal-dialog-centered modal-dialog modal-sm' })
+    this.bsModalRef.content.title = alert.title
+    this.bsModalRef.content.message = alert.message
   }
 
-  showError(message: string) {
+  showError(alert: any) {
     this.bsModalRef = this.modalService.show(ErrorComponent, { class: 'modal-dialog modal-dialog-centered modal-dialog modal-sm' })
+    this.bsModalRef.content.title = alert.title
+    this.bsModalRef.content.message = alert.message
   }
 }

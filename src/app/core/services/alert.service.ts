@@ -26,14 +26,14 @@ export class AlertService {
         return this.subject.asObservable();
     }
 
-    public success(message: string, keepAfterRouteChange = false) {
+    public success(title: string, message: string, keepAfterRouteChange = false) {
         this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next({ type: 'success', text: message });
+        this.subject.next({ type: 'success', title: title, message: message });
     }
 
-    public error(message: string, keepAfterRouteChange = false) {
+    public error(title: string, message: string, keepAfterRouteChange = false) {
         this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next({ type: 'error', text: message });
+        this.subject.next({ type: 'error', title: title, message: message });
     }
 
     public clear() {
