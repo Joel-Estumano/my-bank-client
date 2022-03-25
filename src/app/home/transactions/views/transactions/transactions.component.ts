@@ -12,8 +12,7 @@ export class TransactionsComponent implements OnInit {
 
   public transactions: Transaction[]
   public filters = {
-    _id: "623b630daa23314afa24d88d",
-    active: true
+   
   }
 
   constructor(private readonly transactionsService: TransactionsService,
