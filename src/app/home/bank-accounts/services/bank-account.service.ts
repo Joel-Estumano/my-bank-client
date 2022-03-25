@@ -11,7 +11,7 @@ export class BamkAccountsService {
         this.baseUrl = 'bankAccounts';
     }
 
-    public all(): Observable<any[]> {
-        return this.httpService.get(this.baseUrl);
+    public search(queryes: JSON): Observable<any> {
+        return this.httpService.post(this.baseUrl + '/search', queryes);
     }
 }

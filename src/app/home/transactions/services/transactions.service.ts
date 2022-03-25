@@ -12,10 +12,7 @@ export class TransactionsService {
         this.baseUrl = 'transactions';
     }
 
- 
-
     public search(queryes: JSON): Observable<any> {
         return this.httpService.post(this.baseUrl + '/search', queryes);
     }
-
 }
