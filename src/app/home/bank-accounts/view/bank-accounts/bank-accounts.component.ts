@@ -22,7 +22,7 @@ export class BankAccountsComponent implements OnInit {
     private readonly router: Router) {
 
     this.bankAccounts = []
-    this.idBankAccount = "623caf42e0c2c4c1ebdb77e8"
+    this.idBankAccount = '623caf42e0c2c4c1ebdb77e8'
     this.filters = {
       user: { _id: this.idBankAccount }
     }
