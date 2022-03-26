@@ -10,17 +10,29 @@ import { TransactionsService } from '../../services/transactions.service';
   styleUrls: ['./transactions.component.scss']
 })
 export class TransactionsComponent implements OnInit {
-
   public transactions: Transaction[]
-  public filters = {
-
+  public filters: {
+    bankAccount: { _id: string | null }
   }
+  private bankAccount: any | null = null
 
   constructor(private readonly transactionsService: TransactionsService,
     private readonly queryPageService: QueryPageService,
     private readonly router: Router) {
 
+    if (this.router.getCurrentNavigation() != null) {
+      const currentState = this.router.getCurrentNavigation()?.extras?.state
+      if (!currentState?.['account']) {
+        this.back()
+      }
+      this.bankAccount = currentState?.['account'];
+    }
+
     this.transactions = []
+
+    this.filters = {
+      bankAccount: { _id: this.bankAccount._id }
+    }
   }
 
   ngOnInit(): void {
