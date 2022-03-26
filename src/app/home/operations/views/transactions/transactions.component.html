@@ -37,10 +37,10 @@
                     <li class="list-group-item" *ngFor="let transaction of transactions; index as i;">
                         <div class="row p-0">
                             <div class="col text-start border-end">
-                                <h6 class="card-text fw-normal">{{ transaction.transactionType }}</h6>
+                                <h6 class="card-text fw-normal">{{ getLabelTransactionType(transaction.transactionType) }}</h6>
                             </div>
                             <div class="col text-start border-end">
-                                <h6 class="card-text fw-normal">{{ transaction.transactionType }}</h6>
+                                <h6 class="card-text fw-normal">{{ getLabelTransactionDescription(transaction.description) }}</h6>
                             </div>
                             <div class="col text-start border-end">
                                 <h6 class="card-text fw-normal">{{ transaction.moveValue | currency : 'US$ '}}</h6>

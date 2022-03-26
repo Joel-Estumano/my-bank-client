@@ -31,4 +31,21 @@ export class Transaction {
         { id: 3, alias: 'Transfer', label: 'Transfer' }
     ];
 
+    static getLabelTransactionType(type: number | null) {
+        switch (type) {
+            case 1: return 'Incoming';
+            case 2: return 'Outgoing';
+            default: return 'Undefined';
+        }
+    }
+
+    static getLabelTransactionDescription(type: number | null) {
+        switch (type) {
+            case 1: return 'Deposit';
+            case 2: return 'Plunder';
+            case 2: return 'Transfer';
+            default: return 'Undefined';
+        }
+    }
+
 }

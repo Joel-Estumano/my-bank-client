@@ -42,4 +42,12 @@ export class TransactionsComponent implements OnInit {
     this.router.navigate(['home/bank-accounts'])
   }
 
+  getLabelTransactionType(id: number | null = 0): string {
+    return Transaction.getLabelTransactionType(id)
+  }
+
+  getLabelTransactionDescription(id: number | null = 0): string {
+    return Transaction.getLabelTransactionDescription(id)
+  }
+
 }
