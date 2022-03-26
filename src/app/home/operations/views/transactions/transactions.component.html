@@ -35,7 +35,7 @@
                 </ul>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" *ngFor="let transaction of transactions; index as i;">
-                        <div class="row mt-1 mb-1 p-0">
+                        <div class="row p-0">
                             <div class="col text-start border-end">
                                 <h6 class="card-text fw-normal">{{ transaction.transactionType }}</h6>
                             </div>
@@ -52,6 +52,11 @@
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="d-grid gap-0 d-md-flex justify-content-md-end mt-0">
+            <button class="btn btn-secondary btn-sm text-uppercase" type="button" (click)="back()">Back</button>
         </div>
     </div>
 </div>

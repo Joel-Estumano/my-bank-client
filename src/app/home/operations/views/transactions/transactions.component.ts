@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { QueryPageService } from 'src/app/core/services/query-page.service';
 import { Transaction } from '../../interfaces/transaction.interface';
 import { TransactionsService } from '../../services/transactions.service';
@@ -12,11 +13,12 @@ export class TransactionsComponent implements OnInit {
 
   public transactions: Transaction[]
   public filters = {
-   
+
   }
 
   constructor(private readonly transactionsService: TransactionsService,
-    private readonly queryPageService: QueryPageService) {
+    private readonly queryPageService: QueryPageService,
+    private readonly router: Router) {
 
     this.transactions = []
   }
@@ -34,6 +36,10 @@ export class TransactionsComponent implements OnInit {
       this.transactions = response.results;
       console.log('#transactions: ', this.transactions);
     });
+  }
+
+  back() {
+    this.router.navigate(['home/bank-accounts'])
   }
 
 }
