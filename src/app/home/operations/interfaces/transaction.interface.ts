@@ -26,9 +26,9 @@ export class Transaction {
     }
 
     static OPTIONS_DESCRIPTION_TRANSACTION = [
-        { id: 1, alias: 'PLUNDER', label: 'DEPOSIT' },
-        { id: 2, alias: 'PLUNDER', label: 'PLUNDER' },
-        { id: 3, alias: 'TRANSFER', label: 'TRANSFER' }
+        { id: 1, alias: 'Deposit', label: 'Deposit' },
+        { id: 2, alias: 'Plunder', label: 'Plunder' },
+        { id: 3, alias: 'Transfer', label: 'Transfer' }
     ];
 
 }
