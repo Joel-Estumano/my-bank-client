@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Transaction } from '../../interfaces/transaction.interface';
 
 @Component({
   selector: 'app-operations',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./operations.component.scss']
 })
 export class OperationsComponent implements OnInit {
+
+  public readonly OPTIONS_DESCRIPTION_TRANSACTION = Transaction.OPTIONS_DESCRIPTION_TRANSACTION;
 
   constructor() { }
 

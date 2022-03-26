@@ -25,4 +25,10 @@ export class Transaction {
         this.description = form.value.description
     }
 
+    static OPTIONS_DESCRIPTION_TRANSACTION = [
+        { id: 1, alias: 'PLUNDER', label: 'DEPOSIT' },
+        { id: 2, alias: 'PLUNDER', label: 'PLUNDER' },
+        { id: 3, alias: 'TRANSFER', label: 'TRANSFER' }
+    ];
+
 }
