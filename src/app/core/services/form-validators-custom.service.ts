@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 @Injectable({
     providedIn: 'root'
@@ -25,5 +25,20 @@ export class FormValidatorsCustom {
             return true;
         }
     }
+
+    static errorValidatos(balance: number): ValidatorFn {
+        console.log(balance)
+        return (control: AbstractControl): ValidationErrors | null => {
+          const value = control.value;
+          console.log(value)
+          if (!value) {
+            return null;
+          }
+          if (isNaN(value) || value > balance.toFixed(2)) {
+            return { 'NaN': true };
+          }
+          return null;
+        }
+      }
 
 }
