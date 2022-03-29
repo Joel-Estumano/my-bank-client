@@ -4,6 +4,8 @@ import { OperationsComponent } from './views/operations/operations.component';
 import { TransactionsComponent } from './views/transactions/transactions.component';
 import { OperationsRoutingModule } from './operations-routing.module';
 import { TransactionsService } from './services/transactions.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,10 @@ import { TransactionsService } from './services/transactions.service';
   ],
   imports: [
     CommonModule,
-    OperationsRoutingModule
+    OperationsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
     TransactionsService
