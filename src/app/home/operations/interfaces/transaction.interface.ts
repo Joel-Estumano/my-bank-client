@@ -28,7 +28,6 @@ export class Transaction {
     static OPTIONS_DESCRIPTION_TRANSACTION = [
         { id: 1, alias: 'Deposit', label: 'Deposit' },
         { id: 2, alias: 'Plunder', label: 'Plunder' },
-        { id: 3, alias: 'Transfer', label: 'Transfer' }
     ];
 
     static getLabelTransactionType(type: number | null) {
@@ -43,7 +42,6 @@ export class Transaction {
         switch (type) {
             case 1: return 'Deposit';
             case 2: return 'Plunder';
-            case 2: return 'Transfer';
             default: return 'Undefined';
         }
     }
