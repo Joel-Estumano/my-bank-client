@@ -2,6 +2,8 @@ import { FormGroup, Validators } from "@angular/forms"
 
 export class Transaction {
 
+    
+
     transactionType: number | null = null
     bankAccount: string | null = null
     moveValue: number | null = null
@@ -13,22 +15,21 @@ export class Transaction {
         return {
             transactionType: [this.transactionType, Validators.required],
             bankAccount: [this.bankAccount, Validators.required],
-            moveValue: [this.moveValue, Validators.required],
+            moveValue: [this.moveValue,Validators.required],
             description: [this.description, Validators.required]
         }
     }
 
     public getFormValuesTransaction(form: FormGroup) {
-        this.transactionType = form.value.transactionType
+        this.transactionType = Number(form.value.transactionType)
         this.bankAccount = form.value.bankAccount
-        this.moveValue = form.value.moveValue
-        this.description = form.value.description
+        this.moveValue = Number(form.value.moveValue)
+        this.description = Number(form.value.description)
     }
 
     static OPTIONS_DESCRIPTION_TRANSACTION = [
         { id: 1, alias: 'Deposit', label: 'Deposit' },
         { id: 2, alias: 'Plunder', label: 'Plunder' },
-        { id: 3, alias: 'Transfer', label: 'Transfer' }
     ];
 
     static getLabelTransactionType(type: number | null) {
@@ -43,7 +44,6 @@ export class Transaction {
         switch (type) {
             case 1: return 'Deposit';
             case 2: return 'Plunder';
-            case 2: return 'Transfer';
             default: return 'Undefined';
         }
     }

@@ -15,6 +15,7 @@ export class OperationsComponent implements OnInit {
 
   public transaction: Transaction = new Transaction()
   public form: FormGroup
+  private bankAccount: any
 
   public readonly OPTIONS_DESCRIPTION_TRANSACTION = Transaction.OPTIONS_DESCRIPTION_TRANSACTION;
 
@@ -24,24 +25,32 @@ export class OperationsComponent implements OnInit {
     private readonly transactionsService: TransactionsService) {
 
     this.form = this.fb.group(this.transaction.createFormTransaction())
-    
+
+    if (this.router.getCurrentNavigation() != null) {
+      const currentState = this.router.getCurrentNavigation()?.extras?.state
+      if (!currentState?.['account']) {
+        this.back()
+      }
+      this.bankAccount = currentState?.['account']
+    }
   }
 
   ngOnInit(): void {
+    this.form.patchValue({ "bankAccount": this.bankAccount._id })
   }
 
   send() {
+    this.setType(this.form.value.description)
     if (FormValidatorsCustom.isValidForms(this.form)) {
 
-      Object.assign(this.transaction, this.form.getRawValue())
-
-      console.log(this.transaction)
+      this.transaction.getFormValuesTransaction(this.form)
 
       this.transactionsService.insert(this.transaction).subscribe({
         next: (response: any) => {
           this.alertService.success('Sucesso', response, true)
           this.back()
         },
+
         error: (erro) => {
           this.alertService.error('Erro', erro, true)
         },
@@ -57,4 +66,13 @@ export class OperationsComponent implements OnInit {
     this.router.navigate(['home/bank-accounts'])
   }
 
+  setType(number: Number) {
+    if (number == 1) {
+      this.form.patchValue({ "transactionType": 1 })
+    } else if (number == 2) {
+      this.form.patchValue({ "transactionType": 2 })
+    }
+  }
+
+ 
 }

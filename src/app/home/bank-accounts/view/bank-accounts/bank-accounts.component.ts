@@ -40,7 +40,6 @@ export class BankAccountsComponent implements OnInit {
   public search(queryes?: any) {
     this.bamkAccountsService.search(queryes).subscribe(response => {
       this.bankAccounts = response.results;
-      console.log(this.bankAccounts);
     });
   }
 

@@ -10,13 +10,19 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Count: {{ account.accountNumber }}</h5>
                                     <p class="card-text">Agency: {{ account.agency }}</p>
-                                    <span class="me-1">Status<i class="fa ms-2" [ngClass]="account.active ? 'fa-check' : 'fa-dollar-sign'"></i></span>
-                                    <span class="ms-1">{{ account.balance | currency : 'US$ '}}<i class="fa fa-dollar-sign ms-2"></i></span>
+                                    <span class="me-1">Status<i class="fa ms-2"
+                                            [ngClass]="account.active ? 'fa-check' : 'fa-dollar-sign'"></i></span>
+                                    <span class="ms-1">{{ account.balance | currency : 'US$ '}}<i
+                                            class="fa fa-dollar-sign ms-2"></i></span>
                                 </div>
                                 <div class="card-footer">
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                                        <button class="btn btn-secondary btn-sm text-uppercase" type="button" [disabled]="!account.active" (click)="goToTransactions(account)">Transactions</button>
-                                        <button class="btn btn-secondary btn-sm text-uppercase" type="button" [disabled]="!account.active" (click)="goToOperations(account)">Operations</button>
+                                        <button class="btn btn-secondary btn-sm text-uppercase" type="button"
+                                            [disabled]="!account.active"
+                                            (click)="goToTransactions(account)">Transactions</button>
+                                        <button class="btn btn-secondary btn-sm text-uppercase" type="button"
+                                            [disabled]="!account.active"
+                                            (click)="goToOperations(account)">Operations</button>
                                     </div>
                                 </div>
                             </div>
