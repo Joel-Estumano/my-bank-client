@@ -10,7 +10,7 @@ export class PixCreateImmediateCharge {
         return {
             cpf: [null, [Validators.required]],
             nome: [null, [Validators.required]],
-            original: [null, [FormValidatorsCustom.isAboveZero()]]
+            original: [null, [Validators.required, FormValidatorsCustom.isAboveZero()]]
         }
     }
 
