@@ -15,6 +15,7 @@ export class LoginService {
     }
 
     public login(user: LoginInterface): Observable<any> {
+        this.logOut()
         return this.httpService.post(this.baseUrl, user);
     }
 
@@ -25,6 +26,10 @@ export class LoginService {
 
     public setToken(token: string) {
         window.localStorage.setItem('token', token)
+    }
+
+    public logOut() {
+        window.localStorage.removeItem('token')
     }
 
 }

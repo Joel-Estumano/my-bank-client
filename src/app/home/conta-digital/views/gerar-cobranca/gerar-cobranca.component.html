@@ -1,0 +1,48 @@
+<div class="container p-2 h-100">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row align-items-start mt-1 mb-1" data-bs-toggle="tooltip">
+                        <div class="col-md-4">
+                            <div class="card border-0">
+                                <!-- <div class="card-body">
+                                <h5 class="card-title">{{ form.value.nome }}</h5>
+                                <p class="card-text">{{ form.value.operadora }}</p>
+                                <span class="me-1"><i class="fa fa-calendar" [hidden]="!form.value.vencimento"></i> {{ form.value.vencimento }}</span>
+                                
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card border-0">
+                                <div class="card-body">
+                                    <div class="form-group col-md-12 mb-2">
+                                        <label class="fw-light">Nome do pagador</label>
+                                        <input type="text" class="form-control form-control-sm" formControlName="nome" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(form,'nome')">
+                                    </div>
+                                    <div class="form-group col-md-12 mb-2">
+                                        <label class="fw-light">CPF do pagador</label>
+                                        <input type="text" class="form-control form-control-sm" formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(form,'cpf')">
+                                    </div>
+                                    <div class="form-group col-md-12 mb-2">
+                                        <label class="fw-light">Valor da cobrança</label>
+                                        <input type="text" class="form-control form-control-sm" formControlName="original" currencyMask placeholder="R$ 0,00" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(form,'original')">
+                                    </div>
+                                    <div class="row">
+                                        <div class="d-grid gap-1 d-md-flex justify-content-md-end mt-4">
+                                            <button class="btn btn-secondary btn-sm text-uppercase" routerLink="/conta-digital" [routerLinkActive]="['router-link-active']" type="button">Voltar</button>
+                                            <!-- <button class="btn btn-primary btn-sm text-uppercase" [disabled]="!form.valid && form.value.usuario" type="submit">Enviar</button> -->
+                                            <button class="btn btn-primary btn-sm text-uppercase" type="submit">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<app-alert></app-alert>

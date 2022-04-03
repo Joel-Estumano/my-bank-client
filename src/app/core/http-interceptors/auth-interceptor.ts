@@ -32,6 +32,6 @@ export class AuthIntercepto implements HttpInterceptor {
                 `Error code ${error.status}`,
                 `Error: ${JSON.stringify(error.error)}`)
         }
-        return throwError(`An error has occurred, please try again`)
+        return throwError(() => (error.error.error.message))
     }
 }

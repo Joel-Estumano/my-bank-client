@@ -12,7 +12,7 @@ import { BamkAccountsService } from '../../services/bank-account.service';
 export class BankAccountsComponent implements OnInit {
 
   public bankAccounts: BankAccount[]
-  public idBankAccount: string | null
+  public idUser: string | null
   public filters: {
     user: { _id: string | null }
   }
@@ -22,9 +22,9 @@ export class BankAccountsComponent implements OnInit {
     private readonly router: Router) {
 
     this.bankAccounts = []
-    this.idBankAccount = '623caf42e0c2c4c1ebdb77e8'
+    this.idUser = '623e42341cf3766b5dbc41e5' // otario35@gmail.com senha
     this.filters = {
-      user: { _id: this.idBankAccount }
+      user: { _id: this.idUser }
     }
   }
 
@@ -40,7 +40,6 @@ export class BankAccountsComponent implements OnInit {
   public search(queryes?: any) {
     this.bamkAccountsService.search(queryes).subscribe(response => {
       this.bankAccounts = response.results;
-      console.log(this.bankAccounts);
     });
   }
 
@@ -50,7 +49,16 @@ export class BankAccountsComponent implements OnInit {
         account: account
       }
     }
-    this.router.navigate(['/home/transactions'], navigationExtras)
+    this.router.navigate(['/home/operations/'], navigationExtras)
+  }
+
+  goToOperations(account: any) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        account: account
+      }
+    }
+    this.router.navigate(['/home/operations/operations'], navigationExtras)
   }
 
 }

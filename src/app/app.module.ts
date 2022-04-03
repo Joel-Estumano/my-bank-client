@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpInterceptorProviders } from './core/http-interceptors';
 
+const maskConfigFunction: () => Partial<IConfig> = () => {
+  return {
+    validation: false,
+  };
+};
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
   allowNegative: true,
@@ -28,6 +34,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(maskConfigFunction),
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
     ModalModule.forRoot()
   ],

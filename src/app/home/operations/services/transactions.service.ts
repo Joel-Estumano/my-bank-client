@@ -12,6 +12,10 @@ export class TransactionsService {
         this.baseUrl = 'transactions';
     }
 
+    public insert(model: Transaction): Observable<any> {
+        return this.httpService.post(this.baseUrl, model);
+    }
+
     public search(queryes: JSON): Observable<any> {
         return this.httpService.post(this.baseUrl + '/search', queryes);
     }

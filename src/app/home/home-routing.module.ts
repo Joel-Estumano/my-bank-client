@@ -13,8 +13,12 @@ const routes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
-                path: 'transactions', loadChildren: () => import('./transactions/transactions.module').then(m => m.TransactionsModule),
+                path: 'operations', loadChildren: () => import('./operations/operations.module').then(m => m.OperationsModule),
                 canActivate: [AuthGuard]
+            },
+            {
+                path: 'conta-digital', loadChildren: () => import('./conta-digital/conta-digital.module').then(m => m.ContaDigitalModule)
+               
             },
             { path: 'sign-up', loadChildren: () => import('./sign-up/sign-up.module').then(m => m.SignUpModule) },
             { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }

@@ -1,10 +1,24 @@
 import { Injectable } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 @Injectable({
     providedIn: 'root'
 })
 export class FormValidatorsCustom {
+
+    static isAboveZero(): ValidatorFn {
+        return (control: AbstractControl): ValidationErrors | null => {
+            const value = control.value;
+            if (value === null) { return null; }
+            if (isNaN(control.value)) {
+                return { 'NaN': true };
+            }
+            if (value == 0) {
+                return { 'NaN': true };
+            }
+            return null;
+        }
+    }
 
     static isValidForms(...forms: FormGroup[]): any {
         let invalidsControls: string[] = [];
