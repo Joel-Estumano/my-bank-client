@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-qrcode-view',
@@ -10,9 +11,11 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class QrcodeViewComponent implements OnInit {
 
   @Input() qrcodeImagem: string = ''
-  @Input() copiaecola: string | null = null
+  @Input() copiaecola: string = ''
+  @Input() valor: string = ''
 
   constructor(public bsModalRef: BsModalRef,
+    private readonly clipboardService: ClipboardService,
     private readonly router: Router) { }
 
   ngOnInit(): void {
@@ -21,5 +24,9 @@ export class QrcodeViewComponent implements OnInit {
   onClose() {
     this.bsModalRef.hide()
     this.router.navigate(['/conta-digital']);
+  }
+
+  copy() {
+    this.clipboardService.copyFromContent(this.copiaecola)
   }
 }

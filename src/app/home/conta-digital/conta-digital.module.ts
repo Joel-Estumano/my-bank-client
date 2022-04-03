@@ -8,6 +8,7 @@ import { ContaDigitalService } from './services/conta-digital.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QrcodeViewComponent } from './views/qrcode-view/qrcode-view.component';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgxCurrencyModule } from 'ngx-currency';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    ClipboardModule
   ],
   providers: [ContaDigitalService]
 })

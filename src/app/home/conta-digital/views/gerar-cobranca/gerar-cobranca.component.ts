@@ -65,5 +65,6 @@ export class GerarCobrancaComponent implements OnInit {
     this.bsModalRef = this.modalService.show(QrcodeViewComponent, { class: 'modal-dialog modal-dialog-centered modal-dialog modal-lg' })
     this.bsModalRef.content.copiaecola = data.copiaecola
     this.bsModalRef.content.qrcodeImagem = data.imagem
+    this.bsModalRef.content.valor = data.valor
   }
 }
