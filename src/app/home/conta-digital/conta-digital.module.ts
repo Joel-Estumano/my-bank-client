@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QrcodeViewComponent } from './views/qrcode-view/qrcode-view.component';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { ClipboardModule } from 'ngx-clipboard';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     ReactiveFormsModule,
     SharedModule,
     NgxCurrencyModule,
-    ClipboardModule
+    ClipboardModule,
+    NgxMaskModule
   ],
   providers: [ContaDigitalService]
 })

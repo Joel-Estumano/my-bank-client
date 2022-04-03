@@ -43,7 +43,6 @@ export class GerarCobrancaComponent implements OnInit {
 
       this.contaDigitalService.insert(this.cobranca).subscribe({
         next: (response: any) => {
-          // this.alertService.success('Sucesso', JSON.stringify(response), true)
           this.showQrcodeView(response)
         },
         error: (erro) => {
@@ -66,5 +65,6 @@ export class GerarCobrancaComponent implements OnInit {
     this.bsModalRef.content.copiaecola = data.copiaecola
     this.bsModalRef.content.qrcodeImagem = data.imagem
     this.bsModalRef.content.valor = data.valor
+    this.bsModalRef.content.expiracao = data.expiracao
   }
 }

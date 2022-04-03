@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="form-group col-md-12 mb-2">
                                         <label class="fw-light">CPF do pagador</label>
-                                        <input type="text" class="form-control form-control-sm" formControlName="cpf" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(form,'cpf')">
+                                        <input type="text" class="form-control form-control-sm" formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" [ngClass]="formValidatorsAplyCSS.applyInvalidClass(form,'cpf')">
                                     </div>
                                     <div class="form-group col-md-12 mb-2">
                                         <label class="fw-light">Valor da cobrança</label>

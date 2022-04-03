@@ -3,7 +3,6 @@ import { FormValidatorsCustom } from "src/app/core/services/form-validators-cust
 
 export class PixCreateImmediateCharge {
 
-    calendario: any = null
     devedor: any = null
     valor: any = null
 
@@ -11,15 +10,11 @@ export class PixCreateImmediateCharge {
         return {
             cpf: [null, [Validators.required]],
             nome: [null, [Validators.required]],
-            original: [null, [Validators.required, FormValidatorsCustom.isAboveZero()]]
+            original: [null, [FormValidatorsCustom.isAboveZero()]]
         }
     }
 
     public getRawValue(form: FormGroup) {
-        this.calendario = {
-            expiracao: 3600
-        }
-
         this.devedor = {
             cpf: (form.value.cpf).replace(/\D/g, ''),
             nome: form.value.nome
